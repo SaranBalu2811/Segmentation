@@ -31,7 +31,7 @@
                                 argument 4: Width of the glitch (2).
                  The ouput will be faulty images with image file containing the offset, inference, their difference and the pixel value.
    
-4. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask. 
+4. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256x512x19 for both fault-free and faulty mask. 
 
                File used to build the code: build_fpn_glitch_pix_val.sh
                   command to build: ./build_fpn_glitch_pix_val.sh
