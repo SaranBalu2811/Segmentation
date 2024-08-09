@@ -139,11 +139,14 @@ void runSegmentation(vart::Runner* runner, bool& is_running) {
     for (unsigned int k = 0; k < limit; k++) {
       /* Setting glitch offset and width*/
       /* integers number are just a reference */
+
+     // 8 Offsets and 2 glitches in each offset
+		    
       offset= min_offset;
       axi_vptr[0]= 108000 + 25;
       axi_vptr[1]= 108000 + 25+width;  
       axi_vptr[2]= 108000 + 50;
-      axi_vptr[3]= 108000  + 50+width; 
+      axi_vptr[3]= 108000 + 50+width; 
 
       axi_vptr[4]= 412500+ 25;
       axi_vptr[5]= 412500 + 25+width;
