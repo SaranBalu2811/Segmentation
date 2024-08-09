@@ -20,7 +20,8 @@
                     argument 4: Width of the glitch (11).
      The ouput will be offset, pixel difference ,inference time.
    
-4. **fpn_glitch_search_end_pixels_test.cc** - Used to attack the last layer and it generates output only if the (inference time - offsest) is between 2000 to 4000 (can be changed). the output image file contains the offset, inference, their difference and the pixel value.
+   
+5. **fpn_glitch_search_end_pixels_test.cc** - Used to attack the last layer and it generates output only if the (inference time - offsest) is between 2000 to 4000 (can be changed). the output image file contains the offset, inference, their difference and the pixel value.
 
       File used to build the code: build_fpn_glitch_search_end_pixels_test.sh
       command to build: ./build_fpn_glitch_search_end_pixels_test.sh
@@ -30,7 +31,7 @@
                     argument 4: Width of the glitch (2).
      The ouput will be faulty images with image file containing the offset, inference, their difference and the pixel value.
    
-5. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask. 
+6. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask. 
 
    File used to build the code: build_fpn_glitch_pix_val.sh
       command to build: ./build_fpn_glitch_pix_val.sh
