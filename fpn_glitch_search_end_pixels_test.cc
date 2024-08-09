@@ -202,11 +202,12 @@ void runSegmentation(vart::Runner* runner, bool& is_running) {
             }
             
             //printf("Offset : %u    Diff pixels:%d  inference cycles: %u\n",offset+k*step,diff_pixel,axi_vptr[199]);
-            
-            if (axi_vptr[199] - (min_offset + k * step) > 4053 && axi_vptr[199] - (min_offset + k * step) <= 4137)
+
+	    
+            if (axi_vptr[199] - (min_offset + k * step) > 2000 && axi_vptr[199] - (min_offset + k * step) <= 4137) // Print only if the inference time - offset is between 2000 and 4137.
             printf("%u,%d,%u\n",offset+k*step,diff_pixel,axi_vptr[199]);
             //printf("Diff pixels:%u,%u,%u\n",colorx[0],colorx[1],colorx[2]);
-            std::string filename = std::string("test-end-faulty")  +  "-"+ std::to_string(axi_vptr[199] - (min_offset + k * step))  +"-" + std::to_string(min_offset + k * step) + "-" + std::to_string(axi_vptr[199]) +  "-" +std::to_string(diff_pixel) + ".png";
+            std::string filename = std::string("test-end-faulty")  +  "-"+ std::to_string(axi_vptr[199] - (min_offset + k * step))  +"-" + std::to_string(min_offset + k * step) + "-" + std::to_string(axi_vptr[199]) +  "-" +std::to_string(diff_pixel) + ".png"; // name of the output png file.
             imwrite(filename.c_str(), showMat);
             
             
