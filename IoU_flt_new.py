@@ -59,7 +59,7 @@ for max_class in range(0, 19):
         print("\n")
         IoU_arr.append(IoU)
 
-print(IoU_arr) // It contains the IoUs of each class.
+print(IoU_arr) # It contains the IoUs of each class.
 
 # Computing and printing the mean IoU taking into account the classes whose IoU is non zero (defined)
 sum_of_IoU = np.sum(IoU_arr)
