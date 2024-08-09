@@ -8,7 +8,7 @@ colorB = [128, 232, 70, 156, 153, 153, 30,  0,   35, 152, 180, 60,  0,  142, 70,
 colorG = [64,  35, 70, 102, 153, 153, 170, 220, 142, 251, 130, 20, 0,  0,   0,   60,  80,  0,   11]
 colorR = [128, 244, 70,  102, 190, 153, 250, 220, 107, 152,70,  220, 255, 0,   0,   0,   0,   0,   119]
 
-arr_o = np.loadtxt("class_original_0.csv", delimiter=",",dtype=int)
+arr_o = np.loadtxt("class_original_0.csv", delimiter=",",dtype=int) # csv file containing the class of each pixel of the truth mask
 arr_tm = np.loadtxt("mask_256.csv", delimiter=",").astype(np.int64)
 #arr_o=arr_o[:,:-1]
 
