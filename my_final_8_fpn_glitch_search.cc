@@ -32,8 +32,6 @@ unsigned int num_glitches=2;
 unsigned int width;
 unsigned int step=500;
 unsigned int glitch_step=25;
-//int start_offset = 400000;
-//int offset = 400050;
 int i=0;
 unsigned int limit;
 
@@ -143,7 +141,8 @@ void runSegmentation(vart::Runner* runner, bool& is_running) {
     bool f_csv;
     /*run*/
     ground_flag = true;
-    offset= min_offset;        
+    offset= min_offset;  
+    // for loop to inject 2 glitches at 8 different offsets 
     for (int m=0; m<limit ; m++){
             
                 for (int a=0; a<num_glitches; a++){
@@ -246,7 +245,7 @@ void runSegmentation(vart::Runner* runner, bool& is_running) {
                             }
                             //printf("Offset : %u    Diff pixels:%d  inference cycles: %u\n",offset+k*step,diff_pixel,axi_vptr[199]);
 
-                            if (diff_pixel >= 3300)
+                            if (diff_pixel >= 2000) // print the offsets whose pixel difference is greater then 2000. Can be varied accordinging to the image.
                             printf("%u,%u,%u,%u,%u,%u,%u,%u,%d,%u\n", 108000, 412500, 521000, 708000, 827500, 1496000,2423000, offset+m*step, diff_pixel,axi_vptr[199]);
                             //printf("Diff pixels:%u,%u,%u\n",colorx[0],colorx[1],colorx[2]);
                         }
