@@ -12,13 +12,13 @@
    
 3. **my_final_8_fpn_glitch_search.cc** - Used to inject faults at 8 different offsets (with a step size) and outputs the pixel difference.
 
-      File used to build the code: build_my_final_8_fpn_glitch_search.sh
-      command to build: ./build_my_final_8_fpn_glitch_search.sh
-      Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 20000 11
-             where: argument 1: input image (input.png)
-                    argument 2 and 3: Range of offsets in which the glitch should be injected (Step size should be specified in the code).
-                    argument 4: Width of the glitch (11).
-     The ouput will be offset, pixel difference ,inference time.
+                  File used to build the code: build_my_final_8_fpn_glitch_search.sh
+                  command to build: ./build_my_final_8_fpn_glitch_search.sh
+                  Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 20000 11
+                         where: argument 1: input image (input.png)
+                                argument 2 and 3: Range of offsets in which the glitch should be injected (Step size should be specified in the code).
+                                argument 4: Width of the glitch (11).
+                 The ouput will be offset, pixel difference ,inference time.
    
    
 5. **fpn_glitch_search_end_pixels_test.cc** - Used to attack the last layer and it generates output only if the (inference time - offsest) is between 2000 to 4000 (can be changed). the output image file contains the offset, inference, their difference and the pixel value.
