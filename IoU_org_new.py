@@ -9,7 +9,7 @@ colorG = [64,  35, 70, 102, 153, 153, 170, 220, 142, 251, 130, 20, 0,  0,   0,  
 colorR = [128, 244, 70,  102, 190, 153, 250, 220, 107, 152,70,  220, 255, 0,   0,   0,   0,   0,   119]
 
 arr_o = np.loadtxt("class_original_0.csv", delimiter=",",dtype=int) # csv file containing the class of each pixel of the truth mask
-arr_tm = np.loadtxt("mask_256.csv", delimiter=",").astype(np.int64)
+arr_tm = np.loadtxt("mask_256.csv", delimiter=",").astype(np.int64)  # csv file containing the class of each pixel of the fault-free mask
 #arr_o=arr_o[:,:-1]
 
 
@@ -22,7 +22,8 @@ img_ind_tm = arr_tm[0,:].reshape(height,width)
 IoU_arr = []
 
 for max_class in range(0, 19):
-
+#If an index contains the class we are caculating the IoU for, then it will be convereted to 1. Otherwise it will converted to 0.
+# This happens for each of the 19 classes to calculate the IoU
     original_img = np.where(img_ind_original == max_class, 1, 0) 
     truth_mask_img = np.where(img_ind_tm == max_class, 1, 0) 
 
@@ -30,7 +31,7 @@ for max_class in range(0, 19):
     fp = 0
     fn = 0
     tn = 0
-
+# The number of true positives, faulse positives etc are calculated
     for i in range(original_img.shape[0]):
         for j in range(original_img.shape[1]):
             if original_img[i, j] == 1 and truth_mask_img[i, j] == 1:
@@ -45,20 +46,21 @@ for max_class in range(0, 19):
     # Print the results
     print(f"class {max_class}")
     print(f"tp: {tp}, tn: {tn}, fp: {fp}, fn: {fn}")
-
+# If number of true positives is zero, IoU is not defined
     if tp == 0:
         IoU = 0
         print(f"IoU: {IoU}")
         print("\n")
         IoU_arr.append(IoU)
     else:
-        IoU = tp/(tp+fp+fn)
+        IoU = tp/(tp+fp+fn) # formula for IoU
         print(f"IoU: {IoU}")
         print("\n")
         IoU_arr.append(IoU)
 
-print(IoU_arr)
+print(IoU_arr) # It contains the IoUs of each class.
 
+# Computing and printing the mean IoU taking into account the classes whose IoU is non zero (defined)
 sum_of_IoU = np.sum(IoU_arr)
 non_zero_count = np.count_nonzero(IoU_arr)
 mean_IoU = sum_of_IoU/non_zero_count
