@@ -29,7 +29,7 @@
                     argument 4: Width of the glitch (2).
      The ouput will be faulty images with image file containing the offset, inference, their difference and the pixel value.
    
-7. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask. 
+4. **fpn_glitch_pix_val.cc** - Used to generate a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask. 
       File used to build the code: build_fpn_glitch_pix_val.sh
       command to build: ./build_fpn_glitch_pix_val.sh
       Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 48200 11
@@ -39,6 +39,17 @@
                     argument 4: Width of the glitch (11).
      The ouput will be a csv file of pixel values of size 256*512*19 for both fault-free and faulty mask and it will stored in "scp /run/media/sda1/seg_records/".
      Command to copy the code: scp /run/media/sda1/seg_records/fpn_rand_outputs_4000_48200_11.csv twh-lab@192.168.1.101:~/Desktop
-9. **test_my_seg_output.py** - The indexes of the pixels whose values (faulty values) differ significantly from the original values can been recorded.
-10. **IoU_org_new.py** - Calculate the IoU of each classes between the fault-free and ground truth mask. The input should be an array (can be uploaded as csv file) of class of each index.
-11. **IoU_flt_new.py** - Calculate the IoU of each classes between the faulty and ground truth mask. The input should be an array (can be uploaded as csv file) of class of each index.
+   
+5. **test_my_seg_output.py** - The indexes of the pixels whose values (faulty values) differ significantly from the original values can been recorded.
+         Command to run: python3 test_my_seg_output.py
+         The input to this code is the csv file containing the pixel value that was generated using the previous code.
+         The ouput will be index along with the difference between the original max value and faulty max value.
+   
+6. **IoU_org_new.py** - Calculate the IoU of each classes between the fault-free and ground truth mask. The input should be an array (can be uploaded as csv file) of class of each index.
+       Command to run: python3 IoU_org_new.py
+       Input 1: csv file containing the class of each pixels of fault-free mask (size = 256*512).
+       Input 2: csv file containing the class of each pixels of truth mask (size = 256*512).
+       Output will be IoU of each class.
+   
+12. **IoU_flt_new.py** - Calculate the IoU of each classes between the faulty and ground truth mask. The input should be an array (can be uploaded as csv file) of class of each index.
+      Same as the privious code. 
