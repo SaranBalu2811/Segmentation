@@ -8,13 +8,9 @@
       Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 48200 11
    
              where: argument 1: input image (input.png)
-   
                     argument 2: offset where the glitch should be injected (4000 * 100)
-   
                     argument 3: Maximum offset (48200 * 100)
-   
                     argument 4: Width of the glitch (11)
-   
      The ouput will be test.png (fault-free output) and test-faulty.png (faulty).
    
 3. **my_final_8_fpn_glitch_search.cc** - Used to inject faults at 8 different offsets (with a step size) and outputs the pixel difference.
