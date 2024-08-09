@@ -5,8 +5,7 @@
    
       command to build: ./build_my_final_8_fpn_glitch.sh
    
-      Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 48200 11
-   
+            Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 48200 11
              where: argument 1: input image (input.png)
                     argument 2: offset where the glitch should be injected (4000 * 100)
                     argument 3: Maximum offset (48200 * 100)
