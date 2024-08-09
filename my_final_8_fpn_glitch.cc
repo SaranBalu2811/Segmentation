@@ -266,7 +266,7 @@ void runSegmentation(vart::Runner* runner, bool& is_running) {
             //if(segMat.at<Vec3b>(row, col)!=segMat_free.at<Vec3b>(row, col)) diff_pixel++;
           }
         }
-        std::string filename = std::string("test-faulty")  +  "-"+ std::to_string(axi_vptr[199] - min_offset)  +"-" + std::to_string(min_offset) + "-" + std::to_string(axi_vptr[199]) +  "-" +std::to_string(diff_pixel) + ".png";
+        std::string filename = std::string("test-faulty")  +  "-" + std::to_string(min_offset)  + ".png";
             imwrite(filename.c_str(), showMat);
         
         printf("Diff pixels:%d,%d,%d\n",diff_pixel,outHeight,outWidth);
