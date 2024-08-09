@@ -1,10 +1,8 @@
 # Segmentation
 1. **my_final_8_fpn_glitch.cc** - Used to inject faults at 8 different offsets and generate output image
 
-   File used to build the code: build_my_final_8_fpn_glitch.sh
-   
-      command to build: ./build_my_final_8_fpn_glitch.sh
-   
+            File used to build the code: build_my_final_8_fpn_glitch.sh
+            command to build: ./build_my_final_8_fpn_glitch.sh
             Command to run the code: ./segmentation /usr/share/vitis_ai_library/models/fpn/fpn.xmodel input.png 4000 48200 11
              where: argument 1: input image (input.png)
                     argument 2: offset where the glitch should be injected (4000 * 100)
