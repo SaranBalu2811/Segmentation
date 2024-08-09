@@ -58,4 +58,4 @@
    
 12. **IoU_flt_new.py** - Calculate the IoU of each classes between the faulty and ground truth mask. The input should be an array (can be uploaded as csv file) of class of each index.
 
-    Same as the privious code. 
+                Same as the privious code. 
