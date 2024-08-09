@@ -23,7 +23,7 @@ img_ind_fault = np.argmax(img_fault, axis=2)
 
 rows, cols = np.indices(img_ind.shape) 
 
-max_values_o = img[rows, cols, img_ind]
+max_values_o = img[rows, cols, img_ind] #using the index value found above, get the max value at that index
 #print(max_values_o)
 
 max_values_f = img_fault[rows, cols, img_ind_fault]
