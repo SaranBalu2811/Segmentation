@@ -8,24 +8,20 @@ colorB = [128, 232, 70, 156, 153, 153, 30,  0,   35, 152, 180, 60,  0,  142, 70,
 colorG = [64,  35, 70, 102, 153, 153, 170, 220, 142, 251, 130, 20, 0,  0,   0,   60,  80,  0,   11]
 colorR = [128, 244, 70,  102, 190, 153, 250, 220, 107, 152,70,  220, 255, 0,   0,   0,   0,   0,   119]
 
-arr = np.loadtxt("fpn_rand_outputs_end_pixels_4848930_4820000_2.csv",delimiter=",",dtype=int)
+arr = np.loadtxt("fpn_rand_outputs_end_pixels_4848930_4820000_2.csv",delimiter=",",dtype=int) # load the csv file with pixel values
 arr=arr[:,:-1]
 
 
 img=arr[0,:].reshape(height,width,ch)
 img_fault=arr[1,:].reshape(height,width,ch)
 
-img_ind=np.argmax(img, axis=2)
-#for x in img_ind[:2]:
-    #print(x)
+img_ind=np.argmax(img, axis=2) # select the index of max value along the channel axis (among 19 values).
+
 
 img_ind_fault = np.argmax(img_fault, axis=2) 
-#for x in img_ind_fault[:2]:
-    #print(x)
 
-rows, cols = np.indices(img_ind.shape)
-#print(rows)
-#print(cols)
+
+rows, cols = np.indices(img_ind.shape) 
 
 max_values_o = img[rows, cols, img_ind]
 #print(max_values_o)
@@ -33,7 +29,7 @@ max_values_o = img[rows, cols, img_ind]
 max_values_f = img_fault[rows, cols, img_ind_fault]
 #print(max_values_f)
 
-error = max_values_f - max_values_o
+error = max_values_f - max_values_o # Difference between the faulty and original value
 
 print(error)
 print("\n")
@@ -42,7 +38,7 @@ print("Max error value is " )
 print(error.max())
 print("\n")
 
-
+# Print the index of image where the differnt between original max value and faulty max value is greater than 5.
 print("\nError values > 5")
 for row_idx in range(img_ind.shape[0]):  # number of rows
     for col_idx in range(img_ind.shape[1]):  # number of columns
